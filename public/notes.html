@@ -33,8 +33,11 @@
             <ul class="list-group"></ul>
           </div>
         </div>
-        <div class="col-8">
-          <input
+        <!--changed to section-->
+        <section class="col-8">
+          <!--added form-->
+          <form id="note-form">
+            <input
             class="note-title"
             placeholder="Note Title"
             maxlength="28"
@@ -42,7 +45,8 @@
             id="notetitle"
           />
           <textarea class="note-textarea" placeholder="Note Text" id="notetext"></textarea>
-        </div>
+          </form>
+        </section>
       </div>
     </div>
     <script src="/assets/js/index.js"></script>

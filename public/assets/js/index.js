@@ -10,6 +10,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
+  
 }
 
 // Show an element
@@ -43,6 +44,7 @@ const saveNote = (note) =>
   });
 
 const deleteNote = (id) =>
+
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
@@ -67,10 +69,12 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
   };
+
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -84,7 +88,7 @@ const handleNoteDelete = (e) => {
 
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
+ 
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -97,6 +101,7 @@ const handleNoteDelete = (e) => {
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
+  
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
   renderActiveNote();
@@ -174,6 +179,7 @@ const renderNoteList = async (notes) => {
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
+  
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
