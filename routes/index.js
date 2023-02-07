@@ -1,12 +1,11 @@
+//set up routes in a modular way so its easy to add new routes for 
+//different functionality later
 const express = require('express');
-
-// Import our modular routers for /tips and /feedback
-//const tipsRouter = require('./tips');
+//create router for /api/notes
 const notesRouter = require('./notes');
 
 const app = express();
-
-//app.use('/tips', tipsRouter);
+//middleware to use notesRouter
 app.use('/notes', notesRouter);
 
 module.exports = app;

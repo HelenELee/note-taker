@@ -31,17 +31,30 @@ const readAndAppend = (content, file) => {
   });
 };
 
+/**
+ *  Function to read data from a given a file and append some content
+ *  @param {string} idToRemove The ID of the entry you want to remove from the file.
+ *  @param {string} file The path to the file you want to save to.
+ *  @returns {boolean} True/false depending on whether entry was removed
+ */
+//function to read existing json file and delete entry based on ID passed in
 const readAndDelete = (idToRemove, file) => {
- // console.info("READANDDELETE");
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
+      //return false;
     } else {
       const parsedData = JSON.parse(data);
-     // console.info("parsed = " + JSON.stringify(parsedData));
+      //filter array of json object by excluding the one with the ID passed into function
       const newData = parsedData.filter((item) => item.id != idToRemove);
-      //console.info("new Data = " + JSON.stringify(newData));
       writeToFile(file, newData);
+      //check if item was deleted
+      if (parsedData.length > newData.length) {
+        console.info("deleted note");
+      } else {
+        console.info("note not found in db!!!");
+      }
+      
     }
   });
 };

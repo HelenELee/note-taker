@@ -1,5 +1,8 @@
+//set up importsimports
 const note = require('express').Router();
+//functions for reading and writing to json file
 const { readFromFile, readAndAppend, readAndDelete } = require('../helpers/fsUtils');
+//used to create unique ID
 const uuid = require('../helpers/uuid');
 
 // GET Route for retrieving all the notes
@@ -8,8 +11,16 @@ note.get('/', (req, res) => {
 
   readFromFile('./db/db.json')
   .then((data) => {
-    res.json(JSON.parse(data));
+    //console.info(data);
+    if(data.length == 0) {
+      res.send("Empty file");
+    } else {
+      JSON.parse(data);
+      res.json(JSON.parse(data)); 
+    }
+       
   })
+  .catch((err) => console.info(err))
 });
 
 // POST Route for submitting note
@@ -28,9 +39,9 @@ note.post('/', (req, res) => {
       text,
       id: uuid(), //generate unique id
     };
-    
+    //read data from file, append new object and write data back to file
     readAndAppend(newNote, './db/db.json');
-
+    //setup response object and return 
     const response = {
       status: 'success',
       body: newNote,
@@ -43,26 +54,25 @@ note.post('/', (req, res) => {
   }
 });
 
+//DELETE route, expects id of note to delete
 note.delete('/:id', (req, res) => {
   console.info(`${req.method} request received`);
  
   const idToRemove = req.params.id;
-
+  //check id passed in route URL
   if (idToRemove) {
     readAndDelete(idToRemove, './db/db.json');
-
+    //return success
     const response = {
       status: 'success',
-     // body: idToRemove,
     };
 
-    res.json(response);
+    res.status(400).json(response);
+    
   } else {
-    res.json('Error in deleting note');
+    res.status(400).send("no id given");
   }
 
-
-  //res.json(`DELETE route`)
 });
 
 module.exports = note;

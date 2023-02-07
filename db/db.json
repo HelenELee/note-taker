@@ -1,17 +1,17 @@
 [
     {
-        "title": "Help Text",
-        "text": "This is the help text.",
-        "id": "fe90"
+        "title": "New note 1",
+        "text": "note 1",
+        "id": "33c8"
     },
     {
-        "title": "Add comments",
-        "text": "Add comments to code",
-        "id": "6edc"
+        "title": "Note 2",
+        "text": "nte2",
+        "id": "215e"
     },
     {
-        "title": "Test note",
-        "text": "this is a test note",
-        "id": "8fd5"
+        "title": "note 3",
+        "text": "note 3",
+        "id": "8a25"
     }
 ]

@@ -3,14 +3,13 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
-
+//get elements if route is /notes
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
-  
 }
 
 // Show an element
@@ -42,7 +41,7 @@ const saveNote = (note) =>
     },
     body: JSON.stringify(note),
   });
-
+//function to delete json entry based on ID
 const deleteNote = (id) =>
 
   fetch(`/api/notes/${id}`, {
@@ -67,7 +66,7 @@ const renderActiveNote = () => {
     noteText.value = '';
   }
 };
-
+//save handler called when click on save icon
 const handleNoteSave = () => {
   
   const newNote = {
@@ -82,18 +81,20 @@ const handleNoteSave = () => {
 };
 
 // Delete the clicked note
+//called when bin icon clicked
 const handleNoteDelete = (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
-
+  //get attribute of icon actually clicked
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
- 
+  //if currently being displayed, clear fields on right hand side
   if (activeNote.id === noteId) {
     activeNote = {};
   }
-
+  //delete note by passing ID of target element to function
   deleteNote(noteId).then(() => {
+    //list remaining notes again
     getAndRenderNotes();
     renderActiveNote();
   });
