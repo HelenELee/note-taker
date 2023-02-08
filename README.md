@@ -1,7 +1,7 @@
 
   # [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  # Note Taker
+  # Note Taker.
 
   ## Table of Contents
  - [Description](#description)
