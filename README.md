@@ -1,7 +1,7 @@
 
   # [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  # Team Profile Generator
+  # Note Taker
 
   ## Table of Contents
  - [Description](#description)
@@ -17,7 +17,7 @@
   ## Description
   This is an application which allows the user enter notes and save them. All saved notes are displayed on the left hand side of the screen. If a saved note is clicked it will open on the right hand side. Notes can be deleted from the left hand side by clicking on the delete icon.
   
-  This is a node.js application which uses express to build the API to interact with the "notes" which are stored in a json file. The API provides endpoints to list all "notes", add a "note" and to delete a "note". The API also displays static HTML pages. The API is built in a modular way to allow it to be easily extended and new functionality/endponts to be added.
+  This is a node.js application which uses express to build the API to interact with the "notes" which are stored in a json file. The API provides endpoints to list all "notes", add a "note" and to delete a "note". The API also displays static HTML pages. The API is built in a modular way to allow it to be easily extended and new functionality/endpoints to be added.
   
   The application is developed using the following technologies:
   - javascript
