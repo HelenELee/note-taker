@@ -1,4 +1,4 @@
-//set up importsimports
+//set up imports
 const note = require('express').Router();
 //functions for reading and writing to json file
 const { readFromFile, readAndAppend, readAndDelete } = require('../helpers/fsUtils');

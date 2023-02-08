@@ -1,17 +1,22 @@
 [
     {
-        "title": "New note 1",
-        "text": "note 1",
-        "id": "33c8"
+        "title": "Create Readme",
+        "text": "Create the readme for this weeks assignment.",
+        "id": "d8c1"
     },
     {
-        "title": "Note 2",
-        "text": "nte2",
-        "id": "215e"
+        "title": "Test Code",
+        "text": "Test all routes in code and test everything works in the browser.",
+        "id": "1cd0"
     },
     {
-        "title": "note 3",
-        "text": "note 3",
-        "id": "8a25"
+        "title": "Add Comments to Code",
+        "text": "Add comments to all code ensuring any less obvious code is explained well.",
+        "id": "8b02"
+    },
+    {
+        "title": "Use Heroku",
+        "text": "Deploy application to Heroku.",
+        "id": "488c"
     }
 ]
