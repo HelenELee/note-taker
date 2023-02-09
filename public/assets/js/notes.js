@@ -16,7 +16,6 @@ function saveHandler() {
       })
     .then((res) => res.json())
     .then((data) => {
-        //alert(data.status);
         noteTitle = '';
         noteText = '';
     })
